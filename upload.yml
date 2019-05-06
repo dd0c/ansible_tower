@@ -1,0 +1,14 @@
+---
+
+- name: Upload an image from an HTTP URL
+  hosts: openstack
+  gather_facts: false
+  glance_image:
+    login_username: admin
+    login_password: ae3270b381a34794
+    login_tenant_name: admin
+    name: client1 
+    container_format: bare
+    disk_format: qcow2
+    state: present
+    copy_from: http://
