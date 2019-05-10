@@ -4,10 +4,17 @@
   hosts: openstack
   gather_facts: false
   tasks:
-    - name: test
-      copy:
-        content: "hello worldly inhabitants\n"      
-        dest: /tmp/testfile.txt 
+#    - name: test
+#      copy:
+#        content: "hello worldly inhabitants\n"      
+#        dest: /tmp/testfile.txt 
+#    - name: Source keystonerc_admin
+#      shell: "source /home/ansible/keystonerc_admin"
+
+    - name: Download tempest image
+      get_url:
+        url: "http://download.cirros-cloud.net/0.4.0/cirros-0.4.0-x86_64-disk.img"
+        dest: "/var/tmp/cirros-0.4.0.img"
 
     - name: Upload an image from http
       os_image:
@@ -16,13 +23,13 @@
           username: admin
           password: 0684cd3be8964ef7
           project_name: admin
-        name: cirros
-#        container_format: bare
-#        disk_format: qcow2
-#        state: present
-#        filename: cirros-0.3.0-x86_64-disk.img
-#        kernel: cirros-vmlinuz
-#        ramdisk: cirros-initrd
-#        properties:
-#          cpu_arch: x86_64
-#          distro: ubuntu
+        name: cirros-0.4.0
+        container_format: bare
+        disk_format: qcow2
+        state: present
+        filename: /var/tmp/cirros-0.4.0-x86_64-disk.img
+        kernel: cirros-0.4.0-vmlinuz
+        ramdisk: cirros-0.4.0-initrd
+        properties:
+          cpu_arch: x86_64
+          distro: ubuntu
