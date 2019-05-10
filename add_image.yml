@@ -4,8 +4,9 @@
   hosts: openstack
   gather_facts: false
   glance_image:
+    auth_url: http://127.0.0.1:35357/v2.0/
     login_username: admin
-    login_password: ae3270b381a34794
+    login_password: 0684cd3be8964ef7
     login_tenant_name: admin
     name: client1 
     container_format: bare
