@@ -17,7 +17,7 @@
   os_network:
     state: present
     name: private
-  environment: "{{ openstack }}"
+  environment: "{{ lookup('dict', openstack) }}"
 
 - name: create a private subnet
   os_subnet:
