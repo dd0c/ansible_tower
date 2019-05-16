@@ -1,0 +1,15 @@
+---
+
+- name: Deploy networks
+  hosts: openstack
+  gather_facts: false
+  become: false
+  roles:
+    - {role: create_network, tags: 'create_network'}
+
+#- name: Dismantle networks
+#  hosts: openstack
+#  gather_facts: false
+#  become: false
+#  roles:
+#    - {role: remove_network, tags: 'remove_network'}
