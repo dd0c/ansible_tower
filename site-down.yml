@@ -1,0 +1,10 @@
+---
+
+- name: Dismantle networks
+  hosts: openstack
+  gather_facts: false
+  become: false
+  vars_files:
+    - "group_vars/openstack"
+  roles:
+    - {role: dismantle_networks, tags: 'dismantle_networks'}

@@ -1,0 +1,38 @@
+---
+
+- name: Print some debug information
+  vars: 
+    msg: |
+        OS_U: {{ OS_USERNAME }}
+        OS_P: {{ OS_PASSWORD }}
+        OS_AU: {{ OS_AUTH_URL }}
+        OS_PN: {{ OS_PROJECT_NAME }}
+        OS_UDN: {{ OS_USER_DOMAIN_NAME }}
+        OS_PDN: {{ OS_PROJECT_DOMAIN_NAME }}
+  debug: 
+    msg: "{{ msg.split('\n') }}"       
+  tags: debug_info
+
+- name: create a private network
+  os_network:
+    state: present
+    name: private
+  environment: "{{ item }}"
+  with_items:
+    - "{{ openstack }}"
+
+- name: create a private subnet
+  os_subnet:
+    state: present
+    network_name: private
+    name: private_subnet
+    cidr: 172.25.4.0/24
+  environment:
+    OS_USERNAME: "{{ OS_USERNAME }}"
+    OS_PASSWORD: "{{ OS_PASSWORD }}"
+    OS_AUTH_URL: "{{ OS_AUTH_URL }}"
+    PS1: "{{ PS1 }}"
+    OS_PROJECT_NAME: "{{ OS_PROJECT_NAME }}"
+    OS_USER_DOMAIN_NAME: "{{ OS_USER_DOMAIN_NAME }}"
+    OS_PROJECT_DOMAIN_NAME: "{{ OS_PROJECT_DOMAIN_NAME }}"
+    OS_IDENTITY_API_VERSION: "{{ OS_IDENTITY_API_VERSION }}"

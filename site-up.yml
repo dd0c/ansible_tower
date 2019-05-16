@@ -1,0 +1,10 @@
+---
+
+- name: Deploy networks
+  hosts: openstack
+  gather_facts: false
+  become: false
+  vars_files:
+    - "group_vars/openstack"
+  roles:
+    - {role: deploy_networks, tags: 'deploy_networks'}
