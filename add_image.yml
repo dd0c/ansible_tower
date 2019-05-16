@@ -3,6 +3,18 @@
 - name: Deploy image on OpenStack
   hosts: openstack
   gather_facts: false
+  become: false
+
+  environment:
+    OS_USERNAME: admin
+    OS_PASSWORD: 0684cd3be8964ef7
+    OS_AUTH_URL: "http://192.168.1.121:5000/v3"
+    PS1: ='[\u@\h \W(keystone_admin)]\$ '
+    OS_PROJECT_NAME: admin
+    OS_USER_DOMAIN_NAME: Default
+    OS_PROJECT_DOMAIN_NAME: Default
+    OS_IDENTITY_API_VERSION: 3
+
   tasks:
 #    - name: test
 #      copy:
@@ -16,17 +28,8 @@
         url: "http://download.cirros-cloud.net/0.4.0/cirros-0.4.0-x86_64-disk.img"
         dest: "/var/tmp/cirros-0.4.0.img"
 
-    - name: Authenticate to the cloud and retrieve the service catalog
-      os_auth:
-        cloud: rax-dfw
-
     - name: Upload an image from local disk
       os_image:
-        auth:
-          auth_url: http://192.168.1.121:5000/v3
-          username: admin
-          password: 0684cd3be8964ef7
-          project_name: admin
         name: cirros-0.4.0
         container_format: bare
         disk_format: qcow2
