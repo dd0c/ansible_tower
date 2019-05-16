@@ -16,7 +16,11 @@
         url: "http://download.cirros-cloud.net/0.4.0/cirros-0.4.0-x86_64-disk.img"
         dest: "/var/tmp/cirros-0.4.0.img"
 
-    - name: Upload an image from http
+    - name: Authenticate to the cloud and retrieve the service catalog
+      os_auth:
+        cloud: rax-dfw
+
+    - name: Upload an image from local disk
       os_image:
         auth:
           auth_url: http://192.168.1.121:5000/v3

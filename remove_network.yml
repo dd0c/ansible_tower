@@ -1,0 +1,11 @@
+---
+
+- name: Dismantle networks
+  hosts: openstack
+  gather_facts: false
+  tasks:
+
+  - name: remove a private network
+    os_network:
+      state: present
+      name: private

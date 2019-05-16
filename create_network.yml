@@ -1,0 +1,29 @@
+---
+
+- name: Deploying networks
+  hosts: openstack
+  gather_facts: false
+  become: false
+
+  environment:
+    OS_USERNAME: admin
+    OS_PASSWORD: 0684cd3be8964ef7
+    OS_AUTH_URL: "http://192.168.1.121:5000/v3"
+    PS1: ='[\u@\h \W(keystone_admin)]\$ '
+    OS_PROJECT_NAME: admin
+    OS_USER_DOMAIN_NAME: Default
+    OS_PROJECT_DOMAIN_NAME: Default
+    OS_IDENTITY_API_VERSION: 3
+
+  tasks:
+  - name: create a private network
+    os_network:
+      state: present
+      name: private
+
+  - name: create a private subnet
+    os_subnet:
+      state: present
+      network_name: private
+      name: private_subnet
+      cidr: 172.25.4.0/24
