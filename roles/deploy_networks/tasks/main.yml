@@ -43,3 +43,51 @@
     OS_USER_DOMAIN_NAME: "{{ OS_USER_DOMAIN_NAME }}"
     OS_PROJECT_DOMAIN_NAME: "{{ OS_PROJECT_DOMAIN_NAME }}"
     OS_IDENTITY_API_VERSION: "{{ OS_IDENTITY_API_VERSION }}"
+
+- name: create an admin network
+  os_network:
+    state: present
+    name: admin
+  environment:
+    OS_USERNAME: "{{ OS_USERNAME }}"
+    OS_PASSWORD: "{{ OS_PASSWORD }}"
+    OS_AUTH_URL: "{{ OS_AUTH_URL }}"
+    PS1: "{{ PS1 }}"
+    OS_PROJECT_NAME: "{{ OS_PROJECT_NAME }}"
+    OS_USER_DOMAIN_NAME: "{{ OS_USER_DOMAIN_NAME }}"
+    OS_PROJECT_DOMAIN_NAME: "{{ OS_PROJECT_DOMAIN_NAME }}"
+    OS_IDENTITY_API_VERSION: "{{ OS_IDENTITY_API_VERSION }}"
+
+- name: create an admin subnet
+  os_subnet:
+    state: present
+    network_name: admin
+    name: admin_subnet
+    cidr: 172.26.4.0/24
+  environment:
+    OS_USERNAME: "{{ OS_USERNAME }}"
+    OS_PASSWORD: "{{ OS_PASSWORD }}"
+    OS_AUTH_URL: "{{ OS_AUTH_URL }}"
+    PS1: "{{ PS1 }}"
+    OS_PROJECT_NAME: "{{ OS_PROJECT_NAME }}"
+    OS_USER_DOMAIN_NAME: "{{ OS_USER_DOMAIN_NAME }}"
+    OS_PROJECT_DOMAIN_NAME: "{{ OS_PROJECT_DOMAIN_NAME }}"
+    OS_IDENTITY_API_VERSION: "{{ OS_IDENTITY_API_VERSION }}"
+
+#- name: create router between admin and private network
+#  os_router:
+#    state: present
+#    name: router2
+#    network: admin
+#    interfaces:
+#      - private_subnet
+#      - subnet: admin_subnet
+#  environment:
+#    OS_USERNAME: "{{ OS_USERNAME }}"
+#    OS_PASSWORD: "{{ OS_PASSWORD }}"
+#    OS_AUTH_URL: "{{ OS_AUTH_URL }}"
+#    PS1: "{{ PS1 }}"
+#    OS_PROJECT_NAME: "{{ OS_PROJECT_NAME }}"
+#    OS_USER_DOMAIN_NAME: "{{ OS_USER_DOMAIN_NAME }}"
+#    OS_PROJECT_DOMAIN_NAME: "{{ OS_PROJECT_DOMAIN_NAME }}"
+#    OS_IDENTITY_API_VERSION: "{{ OS_IDENTITY_API_VERSION }}"
