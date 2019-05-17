@@ -1,10 +1,10 @@
 ---
 
-- name: Dismantle networks
+- name: Recall networks
   hosts: openstack
   gather_facts: false
   become: false
   vars_files:
     - "group_vars/openstack"
   roles:
-    - {role: dismantle_networks, tags: 'dismantle_networks'}
+    - {role: recall_networks, tags: 'recall_networks'}
