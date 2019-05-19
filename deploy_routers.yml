@@ -1,0 +1,10 @@
+---
+
+- name: Deploy routers
+  hosts: packstack
+  gather_facts: false
+  become: false
+  vars_files:
+    - "group_vars/openstack"
+  roles:
+    - {role: deploy_routers, tags: 'deploy_routers'}

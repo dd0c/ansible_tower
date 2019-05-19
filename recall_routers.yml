@@ -1,0 +1,10 @@
+---
+
+- name: Recall routers
+  hosts: packstack
+  gather_facts: false
+  become: false
+  vars_files:
+    - "group_vars/openstack"
+  roles:
+    - {role: recall_routers, tags: 'recall_routers'}
