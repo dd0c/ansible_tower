@@ -1,7 +1,7 @@
 ---
 
 - name: Deploy networks
-  hosts: openstack
+  hosts: packstack
   gather_facts: false
   become: false
   vars_files:
