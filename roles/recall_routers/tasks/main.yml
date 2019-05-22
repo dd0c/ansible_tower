@@ -14,6 +14,11 @@
     msg: "{{ msg.split('\n') }}"
   tags: debug_info
 
+- name: remove router1
+  os_router:
+    state: absent
+    name: router1
+
 - name: remove router2
   os_router:
     state: absent

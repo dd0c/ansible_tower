@@ -14,7 +14,22 @@
     msg: "{{ msg.split('\n') }}"       
   tags: debug_info
 
+- name: create router between public and private network
+  os_router:
+    state: present
+    name: router1
+    interfaces:
+      - net: public
+        subnet: public_subnet
+      - net: private
+        subnet: private_subnet
+
 - name: create router between admin and private network
   os_router:
     state: present
     name: router2
+    interfaces:
+      - net: private
+        subnet: private_subnet
+      - net: admin
+        subnet: admin_subnet
