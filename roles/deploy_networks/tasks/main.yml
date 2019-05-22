@@ -18,15 +18,6 @@
   os_network:
     state: present
     name: private
-  environment:
-    OS_USERNAME: "{{ OS_USERNAME }}"
-    OS_PASSWORD: "{{ OS_PASSWORD }}"
-    OS_AUTH_URL: "{{ OS_AUTH_URL }}"
-    PS1: "{{ PS1 }}"
-    OS_PROJECT_NAME: "{{ OS_PROJECT_NAME }}"
-    OS_USER_DOMAIN_NAME: "{{ OS_USER_DOMAIN_NAME }}"
-    OS_PROJECT_DOMAIN_NAME: "{{ OS_PROJECT_DOMAIN_NAME }}"
-    OS_IDENTITY_API_VERSION: "{{ OS_IDENTITY_API_VERSION }}"
 
 - name: create a private subnet
   os_subnet:
@@ -34,29 +25,11 @@
     network_name: private
     name: private_subnet
     cidr: 172.25.4.0/24
-  environment:
-    OS_USERNAME: "{{ OS_USERNAME }}"
-    OS_PASSWORD: "{{ OS_PASSWORD }}"
-    OS_AUTH_URL: "{{ OS_AUTH_URL }}"
-    PS1: "{{ PS1 }}"
-    OS_PROJECT_NAME: "{{ OS_PROJECT_NAME }}"
-    OS_USER_DOMAIN_NAME: "{{ OS_USER_DOMAIN_NAME }}"
-    OS_PROJECT_DOMAIN_NAME: "{{ OS_PROJECT_DOMAIN_NAME }}"
-    OS_IDENTITY_API_VERSION: "{{ OS_IDENTITY_API_VERSION }}"
 
 - name: create an admin network
   os_network:
     state: present
     name: admin
-  environment:
-    OS_USERNAME: "{{ OS_USERNAME }}"
-    OS_PASSWORD: "{{ OS_PASSWORD }}"
-    OS_AUTH_URL: "{{ OS_AUTH_URL }}"
-    PS1: "{{ PS1 }}"
-    OS_PROJECT_NAME: "{{ OS_PROJECT_NAME }}"
-    OS_USER_DOMAIN_NAME: "{{ OS_USER_DOMAIN_NAME }}"
-    OS_PROJECT_DOMAIN_NAME: "{{ OS_PROJECT_DOMAIN_NAME }}"
-    OS_IDENTITY_API_VERSION: "{{ OS_IDENTITY_API_VERSION }}"
 
 - name: create an admin subnet
   os_subnet:
@@ -64,12 +37,3 @@
     network_name: admin
     name: admin_subnet
     cidr: 172.26.4.0/24
-  environment:
-    OS_USERNAME: "{{ OS_USERNAME }}"
-    OS_PASSWORD: "{{ OS_PASSWORD }}"
-    OS_AUTH_URL: "{{ OS_AUTH_URL }}"
-    PS1: "{{ PS1 }}"
-    OS_PROJECT_NAME: "{{ OS_PROJECT_NAME }}"
-    OS_USER_DOMAIN_NAME: "{{ OS_USER_DOMAIN_NAME }}"
-    OS_PROJECT_DOMAIN_NAME: "{{ OS_PROJECT_DOMAIN_NAME }}"
-    OS_IDENTITY_API_VERSION: "{{ OS_IDENTITY_API_VERSION }}"
