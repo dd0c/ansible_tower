@@ -18,7 +18,3 @@
   os_router:
     state: present
     name: router2
-    network: admin
-    interfaces:
-      - private_subnet
-      - subnet: admin_subnet
