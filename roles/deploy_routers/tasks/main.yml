@@ -31,5 +31,7 @@
     interfaces:
       - net: private
         subnet: private_subnet
+        portip: 172.25.4.100
       - net: admin
         subnet: admin_subnet
+        portip: 172.26.4.100
