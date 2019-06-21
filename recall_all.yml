@@ -9,6 +9,7 @@
   roles:
     - {role: recall_routers, tags: 'recall_routers'}
     - {role: recall_networks, tags: 'recall_networks'}
+    - {role: recall_hosts, tags: 'recall_hosts'}
   environment:
     OS_USERNAME: "{{ OS_USERNAME }}"
     OS_PASSWORD: "{{ OS_PASSWORD }}"

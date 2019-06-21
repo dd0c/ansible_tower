@@ -1,14 +1,12 @@
 ---
 
-- name: Deploy networks
+- name: Deploy hosts
   hosts: packstack
   gather_facts: false
   become: false
   vars_files:
     - "group_vars/openstack"
   roles:
-    - {role: deploy_networks, tags: 'deploy_networks'}
-    - {role: deploy_routers, tags: 'deploy_routers'}
     - {role: deploy_hosts, tags: 'deploy_hosts'}
   environment:
     OS_USERNAME: "{{ OS_USERNAME }}"
