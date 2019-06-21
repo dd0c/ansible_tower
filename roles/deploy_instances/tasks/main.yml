@@ -1,0 +1,15 @@
+---
+
+- name: Print some debug information
+  vars: 
+    msg: |
+        OS_U: {{ OS_USERNAME }}
+        OS_P: {{ OS_PASSWORD }}
+        OS_AU: {{ OS_AUTH_URL }}
+        OS_PN: {{ OS_PROJECT_NAME }}
+        OS_UDN: {{ OS_USER_DOMAIN_NAME }}
+        OS_PDN: {{ OS_PROJECT_DOMAIN_NAME }}
+        OS_OIPA: {{ OS_IDENTITY_API_VERSION }}
+  debug: 
+    msg: "{{ msg.split('\n') }}"       
+  tags: debug_info
