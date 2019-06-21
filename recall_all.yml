@@ -7,7 +7,7 @@
   vars_files:
     - "group_vars/openstack"
   roles:
-    - {role: recall_hosts, tags: 'recall_hosts'}
+    - {role: recall_instances, tags: 'recall_instances'}
     - {role: recall_routers, tags: 'recall_routers'}
     - {role: recall_networks, tags: 'recall_networks'}
   environment:

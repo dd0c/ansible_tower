@@ -1,13 +1,13 @@
 ---
 
-- name: Recall hosts
+- name: Recall instances
   hosts: packstack
   gather_facts: false
   become: false
   vars_files:
     - "group_vars/openstack"
   roles:
-    - {role: recall_hosts, tags: 'recall_hosts'}
+    - {role: recall_instances, tags: 'recall_instances'}
   environment:
     OS_USERNAME: "{{ OS_USERNAME }}"
     OS_PASSWORD: "{{ OS_PASSWORD }}"

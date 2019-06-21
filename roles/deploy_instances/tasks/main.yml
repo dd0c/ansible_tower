@@ -1,7 +1,7 @@
 ---
 
 - name: Print some debug information
-  vars: 
+  vars:
     msg: |
         OS_U: {{ OS_USERNAME }}
         OS_P: {{ OS_PASSWORD }}
@@ -10,6 +10,36 @@
         OS_UDN: {{ OS_USER_DOMAIN_NAME }}
         OS_PDN: {{ OS_PROJECT_DOMAIN_NAME }}
         OS_OIPA: {{ OS_IDENTITY_API_VERSION }}
-  debug: 
-    msg: "{{ msg.split('\n') }}"       
+  debug:
+    msg: "{{ msg.split('\n') }}"
   tags: debug_info
+
+- name: Deploy public-server instance
+  os_server:
+    state: present
+    name: admin-server
+    image: "cirros"
+    timeout: 800
+    flavor: m1.tiny
+    network: public
+    auto_ip: no
+
+- name: Deploy admin-server instance
+  os_server:
+    state: present
+    name: admin-server
+    image: "cirros"
+    timeout: 800
+    flavor: m1.tiny
+    network: admin
+    auto_ip: no
+
+- name: Deploy private-server instance
+  os_server:
+    state: present
+    name: private-server
+    image: "cirros"
+    timeout: 800
+    flavor: m1.tiny
+    network: private
+    auto_ip: no
