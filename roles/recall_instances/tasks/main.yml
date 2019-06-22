@@ -23,9 +23,3 @@
   os_server:
     state: absent
     name: admin-server
-
-- name: Recall public-server instance
-  os_server:
-    state: absent
-    name: public-server
-
