@@ -24,10 +24,20 @@
     network: admin
     auto_ip: no
 
-- name: Deploy private-server instance
+- name: Deploy private-cluster1 instance
   os_server:
     state: present
-    name: private-server
+    name: private-cluster1
+    image: "cirros"
+    timeout: 800
+    flavor: m1.tiny
+    network: private
+    auto_ip: no
+
+- name: Deploy private-cluster2 instance
+  os_server:
+    state: present
+    name: private-cluster2
     image: "cirros"
     timeout: 800
     flavor: m1.tiny
