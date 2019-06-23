@@ -14,15 +14,25 @@
     msg: "{{ msg.split('\n') }}"
   tags: debug_info
 
-- name: Deploy admin-server instance
+- name: Deploy public-server instance
   os_server:
     state: present
-    name: admin-server
+    name: public-server
     image: "cirros"
     timeout: 800
     flavor: m1.tiny
-    network: admin
+    network: public
     auto_ip: no
+
+#- name: Deploy admin-server instance
+#  os_server:
+#    state: present
+#    name: admin-server
+#    image: "cirros"
+#    timeout: 800
+#    flavor: m1.tiny
+#    network: admin
+#    auto_ip: no
 
 - name: Deploy private-server instance
   os_server:
