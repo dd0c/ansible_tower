@@ -1,13 +1,13 @@
 ---
 
-- name: Recall instances
+- name: Deploy keypairs
   hosts: packstack
   gather_facts: false
   become: false
   vars_files:
     - "group_vars/openstack"
   roles:
-    - {role: recall_instances, tags: 'recall_instances'}
+    - {role: deploy_keypairs, tags: 'deploy_keypairs'}
   environment:
     OS_USERNAME: "{{ OS_USERNAME }}"
     OS_PASSWORD: "{{ OS_PASSWORD }}"

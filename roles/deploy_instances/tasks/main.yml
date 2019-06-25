@@ -23,6 +23,8 @@
     flavor: m1.tiny
     network: admin
     auto_ip: no
+    key_name: admin_key
+    security_groups: default
 
 - name: Deploy private-server instance
   os_server:
@@ -33,3 +35,5 @@
     flavor: m1.tiny
     network: private
     auto_ip: no
+    key_name: admin_key
+    security_groups: default

@@ -9,6 +9,7 @@
   roles:
     - {role: deploy_networks, tags: 'deploy_networks'}
     - {role: deploy_routers, tags: 'deploy_routers'}
+    - {role: deploy_keypairs, tags: 'deploy_keypairs'}
     - {role: deploy_instances, tags: 'deploy_instances'}
   environment:
     OS_USERNAME: "{{ OS_USERNAME }}"

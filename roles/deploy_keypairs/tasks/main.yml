@@ -1,7 +1,7 @@
 ---
 
 - name: Print some debug information
-  vars: 
+  vars:
     msg: |
         OS_U: {{ OS_USERNAME }}
         OS_P: {{ OS_PASSWORD }}
@@ -10,6 +10,16 @@
         OS_UDN: {{ OS_USER_DOMAIN_NAME }}
         OS_PDN: {{ OS_PROJECT_DOMAIN_NAME }}
         OS_OIPA: {{ OS_IDENTITY_API_VERSION }}
-  debug: 
-    msg: "{{ msg.split('\n') }}"       
+  debug:
+    msg: "{{ msg.split('\n') }}"
   tags: debug_info
+
+- name: Create keypair used by admin
+  os_keypair:
+    state: present
+    name: admin_key
+
+- name: Create keypair used by ansible
+  os_keypair:
+    state: present
+    name: ansible_key

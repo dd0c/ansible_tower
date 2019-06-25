@@ -9,6 +9,7 @@
   roles:
     - {role: recall_instances, tags: 'recall_instances'}
     - {role: recall_routers, tags: 'recall_routers'}
+    - {role: recall_keypairs, tags: 'recall_keypairs'}
     - {role: recall_networks, tags: 'recall_networks'}
   environment:
     OS_USERNAME: "{{ OS_USERNAME }}"
