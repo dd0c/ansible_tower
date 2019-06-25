@@ -14,10 +14,15 @@
     msg: "{{ msg.split('\n') }}"
   tags: debug_info
 
-- name: Recall private-server instance
+- name: Recall private-cluster1 instance
   os_server:
     state: absent
-    name: private-server
+    name: private-cluster1
+
+- name: Recall private-cluster2 instance
+  os_server:
+    state: absent
+    name: private-cluster2
 
 - name: Recall admin-server instance
   os_server:
