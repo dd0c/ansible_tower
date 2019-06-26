@@ -35,6 +35,8 @@
     flavor: m1.tiny
     network: private
     auto_ip: no
+    key_name: admin_key
+    security_groups: default
 
 - name: Deploy private-cluster2 instance
   os_server:

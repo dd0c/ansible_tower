@@ -21,7 +21,7 @@
     network: public
     external_fixed_ips:
       - subnet: public_subnet
-        ip: 172.24.4.2      
+        ip: 172.24.4.250      
     interfaces:
       - net: private
         subnet: private_subnet
