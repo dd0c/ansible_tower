@@ -14,6 +14,27 @@
     msg: "{{ msg.split('\n') }}"
   tags: debug_info
 
+- name: Create admin-server-port1
+  os_port:
+    state: present
+    name: admin-server-port1
+    network: admin
+    security_groups: 779e6d20-b926-41e9-a2fa-5e7328ea526e
+
+- name: Create private-cluster-server1-port1
+  os_port:
+    state: present
+    name: private-cluster-server1-port1
+    network: private
+    security_groups: 779e6d20-b926-41e9-a2fa-5e7328ea526e
+
+- name: Create private-cluster-server2-port1
+  os_port:
+    state: present
+    name: private-cluster-server2-port1
+    network: private
+    security_groups: 779e6d20-b926-41e9-a2fa-5e7328ea526e
+
 - name: Deploy admin-server instance
   os_server:
     state: present
@@ -21,31 +42,31 @@
     image: "cirros"
     timeout: 800
     flavor: m1.tiny
-    network: admin
-    auto_ip: no
+    auto_ip: false
+    nics: "port-name=admin-server-port1,v4-fixed-ip=172.26.4.11"
     key_name: admin_key
-    security_groups: default
+#    security_groups: 779e6d20-b926-41e9-a2fa-5e7328ea526e
 
-- name: Deploy private-cluster1 instance
+- name: Deploy private-cluster-server1 instance
   os_server:
     state: present
-    name: private-cluster1
+    name: private-cluster-server1
     image: "cirros"
     timeout: 800
     flavor: m1.tiny
-    network: private
-    auto_ip: no
+    auto_ip: false
+    nics: "port-name=private-cluster-server1-port1,1v4-fixed-ip=172.25.4.11"
     key_name: admin_key
-    security_groups: default
+#    security_groups: 779e6d20-b926-41e9-a2fa-5e7328ea526e
 
-- name: Deploy private-cluster2 instance
+- name: Deploy private-cluster-server2 instance
   os_server:
     state: present
-    name: private-cluster2
+    name: private-cluster-server2
     image: "cirros"
     timeout: 800
     flavor: m1.tiny
-    network: private
-    auto_ip: no
+    auto_ip: false
+    nics: "port-name=private-cluster-server2-port1,1v4-fixed-ip=172.25.4.11"
     key_name: admin_key
-    security_groups: default
+#    security_groups: 779e6d20-b926-41e9-a2fa-5e7328ea526e
