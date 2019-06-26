@@ -18,8 +18,3 @@
   os_router:
     state: absent
     name: router1
-
-- name: remove router2
-  os_router:
-    state: absent
-    name: router2
