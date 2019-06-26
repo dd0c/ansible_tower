@@ -18,15 +18,25 @@
   os_loadbalancer:
     state: present
     name: loadbalancer1
-    vip_subnet: private_subnet
-    auto_public_ip: true
-    public_network: public
-    listeners: 
-      - name: loadbalancer1_80
-        protocol: TCP
-        protocol_port: 80
-        pool:
-          name: loadbalancer1_80_pool
-          protocol: TCP
-          members:
-            - name: private
+    vip_network: private
+    vip_address: 172.25.4.10
+#    public_ip_address: 172.24.4.10
+#    public_network: public
+#    listeners: 
+#      - name: loadbalancer1_80
+#        protocol: TCP
+#        protocol_port: 80
+#        pool:
+#          name: loadbalancer1_80_pool
+#          protocol: TCP
+#          members:
+#            - name: private-cluster-server1
+#              address: 172.25.4.11
+#              protocol_port: 80
+#              subnet: private_subnet
+##            - name: private-cluster-server2
+#              address: 172.25.4.12
+#              protocol_port: 80
+#              subnet: private_subnet
+#    wait: true
+#    timeout: 800

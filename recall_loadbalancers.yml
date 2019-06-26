@@ -1,17 +1,13 @@
 ---
 
-- name: Recall networks
+- name: Recall loadbalancers
   hosts: packstack
   gather_facts: false
   become: false
   vars_files:
     - "group_vars/openstack"
   roles:
-#    - {role: recall_loadbalancers, tags: 'recall_loadbalancers'}
-    - {role: recall_instances, tags: 'recall_instances'}
-    - {role: recall_routers, tags: 'recall_routers'}
-    - {role: recall_keypairs, tags: 'recall_keypairs'}
-    - {role: recall_networks, tags: 'recall_networks'}
+    - {role: recall_loadbalancers, tags: 'recall_loadbalancers'}
   environment:
     OS_USERNAME: "{{ OS_USERNAME }}"
     OS_PASSWORD: "{{ OS_PASSWORD }}"

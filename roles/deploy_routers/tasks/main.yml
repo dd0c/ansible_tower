@@ -14,7 +14,7 @@
     msg: "{{ msg.split('\n') }}"       
   tags: debug_info
 
-- name: Create external router/gateway to connectprivate and admin network
+- name: Create external router/gateway for private and admin network
   os_router:
     state: present
     name: router1

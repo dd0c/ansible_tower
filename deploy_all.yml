@@ -11,6 +11,7 @@
     - {role: deploy_routers, tags: 'deploy_routers'}
     - {role: deploy_keypairs, tags: 'deploy_keypairs'}
     - {role: deploy_instances, tags: 'deploy_instances'}
+#    - {role: deploy_loadbalancers, tags: 'deploy_loadbalancers'}
   environment:
     OS_USERNAME: "{{ OS_USERNAME }}"
     OS_PASSWORD: "{{ OS_PASSWORD }}"

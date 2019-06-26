@@ -18,8 +18,3 @@
   os_keypair:
     state: absent
     name: admin_key
-
-- name: Destroy keypair used by ansible
-  os_keypair:
-    state: absent
-    name: ansible_key

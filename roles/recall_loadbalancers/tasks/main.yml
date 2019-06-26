@@ -14,7 +14,8 @@
     msg: "{{ msg.split('\n') }}"
   tags: debug_info
 
-- name: Create keypair used by admin
-  os_keypair:
-    state: present
-    name: admin_key
+- name: Deploy loadbalancer1 instance
+  os_loadbalancer:
+    state: absent
+    name: loadbalancer1
+    vip_network: private
