@@ -14,7 +14,7 @@
     msg: "{{ msg.split('\n') }}"
   tags: debug_info
 
-- name: Destroy keypair used by admin
+- name: Recall keypair used by admin
   os_keypair:
     state: absent
     name: admin_key

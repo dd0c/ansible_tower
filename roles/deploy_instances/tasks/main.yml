@@ -14,21 +14,21 @@
     msg: "{{ msg.split('\n') }}"
   tags: debug_info
 
-- name: Create admin-server-port1
+- name: Deploy admin-server-port1
   os_port:
     state: present
     name: admin-server-port1
     network: admin
     security_groups: 779e6d20-b926-41e9-a2fa-5e7328ea526e
 
-- name: Create private-cluster-server1-port1
+- name: Deploy private-cluster-server1-port1
   os_port:
     state: present
     name: private-cluster-server1-port1
     network: private
     security_groups: 779e6d20-b926-41e9-a2fa-5e7328ea526e
 
-- name: Create private-cluster-server2-port1
+- name: Deploy private-cluster-server2-port1
   os_port:
     state: present
     name: private-cluster-server2-port1

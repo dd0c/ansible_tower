@@ -14,7 +14,7 @@
     msg: "{{ msg.split('\n') }}"
   tags: debug_info
 
-- name: Create keypair used by admin
+- name: Deploy keypair used by admin
   os_keypair:
     state: present
     name: admin_key

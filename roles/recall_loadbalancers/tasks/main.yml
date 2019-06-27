@@ -14,8 +14,14 @@
     msg: "{{ msg.split('\n') }}"
   tags: debug_info
 
-- name: Deploy loadbalancer1 instance
-  os_loadbalancer:
+- name: Recall loadbalancer1-port1
+  os_port:
     state: absent
-    name: loadbalancer1
-    vip_network: private
+    name: loadbalancer1-port1
+    network: private
+
+#- name: Deploy loadbalancer1 instance
+#  os_loadbalancer:
+#    state: absent
+#    name: loadbalancer1
+#    vip_network: private

@@ -14,24 +14,24 @@
     msg: "{{ msg.split('\n') }}"       
   tags: debug_info
 
-- name: create a private network
+- name: Deploy a private network
   os_network:
     state: present
     name: private
 
-- name: create a private subnet
+- name: Deploy a private subnet
   os_subnet:
     state: present
     network_name: private
     name: private_subnet
     cidr: 172.25.4.0/24
 
-- name: create an admin network
+- name: Deploy an admin network
   os_network:
     state: present
     name: admin
 
-- name: create an admin subnet
+- name: Deploy an admin subnet
   os_subnet:
     state: present
     network_name: admin
