@@ -21,13 +21,23 @@
     network: private
     security_groups: 779e6d20-b926-41e9-a2fa-5e7328ea526e
 
-#- name: Deploy loadbalancer1 instance
-#  os_loadbalancer:
+#- name: Deploy listener for loadbalancer1
+#  os_listener:
+#    endpoint_type: internal
 #    state: present
-#    name: loadbalancer1
-#    vip_port: loadbalancer1-port1
-#    wait: yes
-#    timeout: 800
+#    name: loadbalancer1_80
+#    loadbalancer: loadbalancer1
+#    protocol: HTTP
+#    protocol_port: 80
+
+- name: Deploy loadbalancer1 instance
+  os_loadbalancer:
+    state: present
+    name: loadbalancer1
+    vip_port: loadbalancer1-port1
+    interface: internal
+    wait: yes
+    timeout: 800
 
 #    vip_network: private
 #    vip_address: 172.25.4.10

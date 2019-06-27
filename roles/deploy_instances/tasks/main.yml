@@ -45,7 +45,6 @@
     auto_ip: false
     nics: "port-name=admin-server-port1,v4-fixed-ip=172.26.4.11"
     key_name: admin_key
-#    security_groups: 779e6d20-b926-41e9-a2fa-5e7328ea526e
 
 - name: Deploy private-cluster-server1 instance
   os_server:
@@ -57,7 +56,6 @@
     auto_ip: false
     nics: "port-name=private-cluster-server1-port1,1v4-fixed-ip=172.25.4.11"
     key_name: admin_key
-#    security_groups: 779e6d20-b926-41e9-a2fa-5e7328ea526e
 
 - name: Deploy private-cluster-server2 instance
   os_server:
@@ -69,4 +67,3 @@
     auto_ip: false
     nics: "port-name=private-cluster-server2-port1,1v4-fixed-ip=172.25.4.11"
     key_name: admin_key
-#    security_groups: 779e6d20-b926-41e9-a2fa-5e7328ea526e
