@@ -25,7 +25,7 @@
   os_loadbalancer:
     state: present
     name: loadbalancer1
-    vip_port: loadbalancer1-port1
+#    vip_port: loadbalancer1-port1
     interface: internal
     vip_network: private
     vip_address: 172.25.4.10

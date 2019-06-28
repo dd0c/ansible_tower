@@ -14,22 +14,22 @@
     msg: "{{ msg.split('\n') }}"
   tags: debug_info
 
-- name: remove subnet private
+- name: Recall subnet private
   os_subnet:
     state: absent
     name: private_subnet
 
-- name: remove network private
+- name: Recall network private
   os_network:
     state: absent
     name: private
 
-- name: remove subnet admin
+- name: Recall subnet admin
   os_subnet:
     state: absent
     name: admin_subnet
 
-- name: remove network admin
+- name: Recall network admin
   os_network:
     state: absent
     name: admin
