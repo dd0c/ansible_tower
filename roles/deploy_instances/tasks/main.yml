@@ -19,16 +19,16 @@
     state: present
     name: admin-server-port1
     network: admin
-    security_groups: 779e6d20-b926-41e9-a2fa-5e7328ea526e
-# RED    security_groups: d8d792eb-7472-427e-8a6d-20ce51747b61
+#    security_groups: 779e6d20-b926-41e9-a2fa-5e7328ea526e
+    security_groups: d8d792eb-7472-427e-8a6d-20ce51747b61
 
 - name: Deploy server1-port1
   os_port:
     state: present
     name: server1-port1
     network: private
-    security_groups: 779e6d20-b926-41e9-a2fa-5e7328ea526e
-# RED    security_groups: d8d792eb-7472-427e-8a6d-20ce51747b61
+#    security_groups: 779e6d20-b926-41e9-a2fa-5e7328ea526e
+    security_groups: d8d792eb-7472-427e-8a6d-20ce51747b61
 
 #- name: Deploy server2-port1
 #  os_port:
